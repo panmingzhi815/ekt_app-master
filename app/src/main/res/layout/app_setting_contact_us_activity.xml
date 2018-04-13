@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
+
+    <include layout="@layout/app_main_toolbar_view_include"/>
+    <!--    <android.support.v7.widget.Toolbar
+            android:id="@+id/appNav_ToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_toolbar_color"
+            android:minHeight="?attr/actionBarSize"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:theme="@style/Toolbar">
+
+        </android.support.v7.widget.Toolbar>-->
+
+    <LinearLayout
+        android:id="@+id/syOfficialWebLayout_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="官方网站"
+            android:textColor="#9E9E9E"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{fa-home}"
+                android:textColor="@color/main_color"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/official_web"
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/app_divider_line_layout"/>
+
+    <LinearLayout
+        android:id="@+id/syTelLayout_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="客服热线"
+            android:textColor="#9E9E9E"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{fa-phone}"
+                android:textColor="#ff0000"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/official_phone_number_str"
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/app_divider_line_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="联系邮箱"
+            android:textColor="#9E9E9E"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{fa-envelope}"
+                android:textColor="#CD950C"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="info@coam.co"
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/app_divider_line_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="官方微信（服务号）"
+            android:textColor="#9E9E9E"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{fa-wechat}"
+                android:textColor="#B3EE3A"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/official_wechat"
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/app_divider_line_layout"/>
+
+</LinearLayout>

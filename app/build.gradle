@@ -1,0 +1,445 @@
+apply plugin: "com.android.application"
+
+// Realm Database Support https://realm.io/docs/java/latest/
+apply plugin: 'realm-android'
+
+// kotlin developer
+apply plugin: 'kotlin-android'
+// 下面是需要手工添加的 plugin [IDEA基于kotlin开发android程序配置小结](http://www.cnblogs.com/musarona/p/6740364.html)
+//apply plugin: 'kotlin-android-extensions'
+
+// 定义通用依赖库
+def supportVersion = "25.3.1" // 24.0.0-alpha2
+
+// 定义编译时间函数
+static def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format("yyyyMMdd")
+    return formattedDate
+}
+
+// Retrieve ndk path to config cpufeatures src code into this project
+// native_app_glue is configured as dependent module, so we avoid confusing
+// NOTICE/repo.prop files get displayed multiple times inside IDE
+def ndkDir = System.getenv("ANDROID_NDK_HOME")
+def propertiesFile = project.rootProject.file('local.properties')
+if (propertiesFile.exists()) {
+    Properties properties = new Properties()
+    properties.load(propertiesFile.newDataInputStream())
+    ndkDir = properties.getProperty('ndk.dir')
+}
+
+ext {
+    travisBuild = System.getenv("TRAVIS") == "true"
+    // allows for -Dpre-dex=false to be set
+    preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+}
+
+android {
+    compileSdkVersion 26 //原来是 'android-N' 23
+    buildToolsVersion '26.0.2' // '23.0.3'
+    // 23.0.3 // http://blog.ylxdzsw.com/posts/enable-java1.8-features-in-android/main.html // https://developer.android.com/studio/releases/build-tools.html#notes
+    defaultConfig {
+        applicationId "com.hbtl.ekt"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 16       // increment with every release
+        versionName '0.16'   // change with every release
+        archivesBaseName += "-$versionName" // From Conversations ...
+        setProperty("archivesBaseName", "MyCompany-MyAppName-$versionName")
+        //multiDexEnabled true //新添加的
+        //https://gist.github.com/okamayana/b3d588ebb752391818aa
+        //https://github.com/Juude/droidViews/blob/master/app/build.gradle
+
+        // [钱柜娱乐开户 5.0 ,zbar扫描java.lang.UnsatisfiedLinkError，找不到so文件](http://www.tk4479.net/ctluo111/article/details/49659649)
+        // [解决Android libzbar.so 文件在arm64-v8a 中 could not found](http://t77368912.lofter.com/post/1cdd9c6f_c29a5b8)
+        ndk {
+            moduleName "EktCso"//定义NDKlibrary的名字
+            //ldLibs "log" 添加log库，看自己需求
+            abiFilters "armeabi-v7a", "x86"
+        }
+
+        // [Gradle CompileOptions](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.CompileOptions.html)
+        compileOptions {
+            encoding "UTF-8" //手动添加的
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        // [Android下的Jack-Jill初探](http://zjutkz.net/2017/01/18/Android下的Jack-Jill初探)
+        //jackOptions {
+        //    enabled true
+        //}
+        multiDexEnabled true //临时解决 65536 错误
+        manifestPlaceholders.put("UMENG_CHANNEL_VALUE", 'dev')
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //定义开发常量
+        buildConfigField "String", "EKT_API_HOST", '"default.coopens.com"'
+        buildConfigField "String", "EKT_API_SERVER", '"https://default.coopens.com/"'
+    }
+    // 参见 Telegram 项目配置
+    sourceSets.main {
+        //jni.srcDir "src/main/jni"
+        //java.srcDirs += 'src/main/kotlin'
+        jniLibs.srcDir 'src/main/libs'
+        // 项目程序中打包的 so 库文件目录位置 默认为 [~/src/main/java/jniLibs] ，如果不指定为 *src/main/libs* 将不会将jni编译生成的 *src/main/libs* so文件打包到最终程序 // This is not necessary unless you have precompiled libraries in your project.
+        jni.srcDirs = []
+        //'src/main/jni/' // This prevents the auto generation of Android.mk "${ndkDir}/sources/android/cpufeatures" // 项目程序中源程序代码文件目录位置 默认为 [~/src/main/java/jni]
+        //jni.srcDirs "${ndkDir}/sources/android/cpufeatures"
+        //jni.srcDirs = ['src/main/java/jni', "${ndkDir}/sources/android/cpufeatures"] //disable automatic ndk-build call , "${ndkDir}/sources/android/cpufeatures"
+    }
+
+    // [JNI and Gradle in Android Studio](http://stackoverflow.com/questions/21096819/jni-and-gradle-in-android-studio)
+    // 可参考 [define LOCAL_SRC_FILES in ndk{} DSL](http://stackoverflow.com/questions/32636150/define-local-src-files-in-ndk-dsl)
+    // 构建自动打包命令
+    task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
+        ///def ndkDir = android.plugin.ndkFolder
+        commandLine "$ndkDir/ndk-build", // [ios:ndk-build|win:ndk-build.cmd]
+                '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
+                '-j', Runtime.runtime.availableProcessors(),
+                'all',
+                'NDK_DEBUG=1'
+    }
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn buildNative
+    }
+    task cleanNative(type: Exec, description: 'Clean JNI object files') {
+        ///def ndkDir = android.plugin.ndkFolder
+        commandLine "$ndkDir/ndk-build", // [ios:ndk-build|win:ndk-build.cmd]
+                '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
+                'clean'
+    }
+    clean.dependsOn 'cleanNative'
+
+    //在Gradle 进行dex的可能会遇到内存不够用的情况，错误信息大概是java.lang.OutOfMemoryError: GC overhead limit exceeded。这个时候只需要配置dexOptions的javaMaxHeapSize大小即可，我这里配置4g：
+    dexOptions {
+        javaMaxHeapSize "8g"
+        dexInProcess true
+        //incremental true
+        preDexLibraries true
+        //提示编译速度 https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-13/%E4%BC%98%E5%8C%96android-studio%E7%BC%96%E8%AF%91%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95.md
+        //jumboMode true //临时解决 65536 错误，会影响编译apk安装文件大小，大概+9kb
+        // Conversations
+        // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
+        //preDexLibraries = preDexEnabled && !travisBuild
+    }
+
+    // 防止出现 Duplicate files copied in APK META-INF/services/javax.annotation.processing.Processor ... dagger lombok 错误
+    packagingOptions {
+        exclude "META-INF/services/javax.annotation.processing.Processor"
+
+        // From Conversations ...
+        // [Gradle项目依赖的问题](http://ask.android-studio.org/?/question/411)
+        //包装选项 - 依赖多项目后 Duplicate files copied in APK META-INF/* 错误，对应加上即可
+//        exclude 'META-INF/DEPENDENCIES'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/BCKEY.DSA'
+        exclude 'META-INF/BCKEY.SF'
+        exclude 'LICENSE.txt'
+    }
+
+    //lint检查
+    lintOptions {
+        abortOnError false
+        // From Conversations ...
+        disable 'ExtraTranslation', 'MissingTranslation', 'InvalidPackage', 'MissingQuantity', 'AppCompatResource'
+    }
+
+    //配置应用签名
+    signingConfigs {
+        realese {
+            keyAlias 'ekt'
+            keyPassword 'yafei312'
+            //storeFile file('C:/Users/yafei/DevelopWorkspace/StudioProjects/ShangYun/app/coam.jks')
+            storeFile file('ekt.jks')
+            storePassword 'yafei312'
+        }
+        debug {
+            keyAlias 'ekt'
+            keyPassword 'yafei312'
+            //storeFile file('C:/Users/yafei/DevelopWorkspace/StudioProjects/ShangYun/app/coam.jks')
+            storeFile file('ekt.jks')
+            storePassword 'yafei312'
+        }
+    }
+
+//    dataBinding {
+//        enabled true
+//    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.name}-${variant.versionName}.apk"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true //启用混淆代码的功能 ， 表示启用自动清除无用代码，用于软件包瘦身。--调试模式下提高编译速度暂关闭
+            //shrinkResources true //移除无用的资源文件
+            //zipAlignEnabled true //压缩对齐生成的apk包
+            //指定混淆规则，需要压缩优化的混淆要把proguard-android.txt换成proguard-android.txt
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.realese //指定打release包的签名
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    if (output.outputFile != null && output.outputFile.name.endsWith(".apk") && "release".equals(variant.buildType.name)) {
+//                        def apkFile = new File(output.outputFile.getParent(), "MyCoamApp_${variant.flavorName}_v${variant.versionName}_${buildTime()}.apk")
+//                        output.outputFile = apkFile
+//                    }
+//                }
+//            }
+
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    output.outputFile = new File(output.outputFile.parent, output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
+//                }
+//            }
+            //ndk {//加入后就才能正常的native debug
+            //    debuggable = true
+            //}
+            // 打包开发配置
+            buildConfigField "String", "API_URL", '"http://release.example.com/api"'
+            buildConfigField "boolean", "LOG_HTTP_CALLS", "false"
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            // 解决 ndk 调试出现 *Error: build type isn't JNI debuggable* 错误。 配置 https://github.com/googlesamples/android-ndk/issues/20
+            jniDebuggable = true
+            debuggable = true
+            // 打包开发配置
+            buildConfigField "String", "API_URL", '"http://debug.example.com/api"'
+            buildConfigField "boolean", "LOG_HTTP_CALLS", "true"
+        }
+    }
+
+    // 多渠道打包 [Android打包之多版本、多环境、多渠道](http://www.jianshu.com/p/872dc6f89cb4)
+    // Specifies a flavor dimension.
+    flavorDimensions "default"
+    // http://alphayang.community/2015/10/16/speed-up-android-studio-build/
+    productFlavors {
+        //开发环境
+        develop {
+            dimension "default"
+            minSdkVersion 16
+            //applicationId "com.hbtl.ekt.develop"
+            applicationId "com.hbtl.ekt"
+            buildConfigField "int", "ENV_TYPE", "1"
+            versionName = android.defaultConfig.versionName + "-D"
+            manifestPlaceholders.put("UMENG_CHANNEL_VALUE", 'develop')
+            manifestPlaceholders = [
+                app_name: "腾旅-develop",
+                app_icon: "@drawable/icon_develop"
+            ]
+            buildConfigField 'String', 'EKT_API_HOST', '"nno.io"'
+            buildConfigField 'String', 'EKT_API_SERVER', '"http://nno.io:3000"'
+        }
+        //测试环境
+        check {
+            dimension "default"
+            minSdkVersion 16
+            //applicationId "com.hbtl.ekt.check"
+            applicationId "com.hbtl.ekt"
+            buildConfigField "int", "ENV_TYPE", "2"
+            versionName = android.defaultConfig.versionName + "-C"
+            manifestPlaceholders.put("UMENG_CHANNEL_VALUE", 'check')
+            manifestPlaceholders = [
+                app_name: "腾旅-check",
+                app_icon: "@drawable/icon_check"
+            ]
+            buildConfigField 'String', 'EKT_API_HOST', '"nno.io"'
+            buildConfigField 'String', 'EKT_API_SERVER', '"http://nno.io:3000"'
+        }
+        //正式环境
+        product {
+            dimension "default"
+            minSdkVersion 16
+            //applicationId "com.hbtl.ekt.product"
+            applicationId "com.hbtl.ekt"
+            buildConfigField "int", "ENV_TYPE", "3"
+            versionName = android.defaultConfig.versionName + "-P"
+            manifestPlaceholders.put("UMENG_CHANNEL_VALUE", 'product')
+            manifestPlaceholders = [
+                app_name: "腾旅-product",
+                app_icon: "@drawable/icon_product"
+            ]
+            buildConfigField 'String', 'EKT_API_HOST', '"nno.io"'
+            buildConfigField 'String', 'EKT_API_SERVER', '"http://nno.io:3000"'
+        }
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    // Java 编译选项...
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+// kotlin 配置相关 [Using Gradle](https://kotlinlang.org/docs/reference/using-gradle.html#configuring-dependencies)
+// [深入理解 Kotlin Coroutine（二）](http://www.tuicool.com/articles/UFJ3yiA)
+kotlin {
+    experimental {
+        //coroutines 'enable'
+    }
+}
+
+// http://stackoverflow.com/questions/29028705/java-exe-finished-with-non-zero-exit-value-2-when-using-facebook-sdk
+// gradle :MODULE:dependencies
+// gradlew :app:dependencies
+dependencies {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // 避免编译出现 65k 错误 - 貌似不用额外引入，配置 [multiDexEnabled true] 后会自动加载此库
+    // compile "com.android.support:multidex:"
+    implementation 'com.android.support:multidex:1.0.2'
+
+    // debugCompile
+    // 添加 Timber 调试支持
+    implementation 'com.jakewharton.timber:timber:4.6.0'
+
+    //Chrome 调试 Android 引用
+    //https://github.com/facebook/stetho
+    //http://stormzhang.com/android/2015/03/05/android-debug-use-chrome/
+    //[~] Stetho 依赖，于是单独列出来
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    // Stetho 调试支持
+    implementation('com.facebook.stetho:stetho:1.5.0') {
+        exclude module: "jsr305", group: "com.google.code.findbugs"
+    }
+    //调试 OKHttp 建立的网络请求
+    // Stetho -> okhttp 调试支持
+    implementation('com.facebook.stetho:stetho-okhttp3:1.5.0') {
+        exclude module: "jsr305", group: "com.google.code.findbugs"
+        exclude module: "stetho", group: "com.facebook.stetho"
+        exclude module: "okhttp", group: "com.squareup.okhttp3"
+    }
+
+    // buttonknife 9930-9906=24kb
+    // https://github.com/JakeWharton/butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // http://stackoverflow.com/questions/20313388/problems-using-rxjava-android
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava"s latest version for bug fixes and new features.
+    //[~]
+    // rxJava 支持库，依赖 rxjava
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
+    implementation('io.reactivex.rxjava2:rxandroid:2.0.1') {
+        exclude module: "rxjava", group: "io.reactivex.rxjava2"
+    }
+    //|注解支持库| //太占用空间了，10641-9318=1323k
+    // [Android Studio 3.0 Canary 1 annotation processor error](https://stackoverflow.com/questions/44084251/android-studio-3-0-canary-1-annotation-processor-error)
+    compileOnly "org.projectlombok:lombok:1.16.18"
+    annotationProcessor "org.projectlombok:lombok:1.16.18"
+
+    // Retrofit 网络请求服务
+    implementation('com.squareup.retrofit2:retrofit:2.3.0') {
+        exclude module: "okhttp", group: "com.squareup.okhttp3"
+    }
+    implementation('com.squareup.retrofit2:adapter-rxjava2:2.3.0') {
+        exclude module: "retrofit", group: "com.squareup.retrofit"
+        exclude module: "rxjava", group: "io.reactivex"
+    }
+//    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation('com.squareup.retrofit2:converter-gson:2.3.0') {
+        exclude module: "retrofit", group: "com.squareup.retrofit"
+        exclude module: "gson", group: "com.google.code.gson"
+    }
+
+    //添加 OkHttp支持
+    implementation 'com.squareup.okio:okio:1.13.0'
+    // Gson 解析 Json 数据
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation('com.squareup.okhttp3:okhttp:3.9.0') {
+        exclude module: "okio", group: "com.squareup.okio"
+    }
+
+    // 动态权限申请
+    // [tbruyelle/RxPermissions](https://github.com/tbruyelle/RxPermissions)
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+
+    // Material-dialogs 对话框设计 https://github.com/afollestad/material-dialogs
+    implementation('com.afollestad.material-dialogs:core:0.9.5.0') {
+        transitive = true
+        exclude module: "library", group: "me.zhanghai.android.materialprogressbar"
+        exclude module: "support-annotations", group: "com.android.support"
+        exclude module: "appcompat-v7", group: "com.android.support"
+        exclude module: "support-v4", group: "com.android.support"
+        exclude module: "recyclerview-v7", group: "com.android.support"
+    }
+    // https://github.com/DreaminginCodeZH/MaterialProgressBar
+    implementation('me.zhanghai.android.materialprogressbar:library:1.4.2') {
+        exclude module: "appcompat-v7", group: "com.android.support"
+        exclude module: "support-annotations", group: "com.android.support"
+    }
+
+    // MaterialEditText 输入框设计
+    implementation('com.rengwuxian.materialedittext:library:2.1.4') {
+        exclude module: "library", group: "com.nineoldandroids"
+        exclude module: "support-annotations", group: "com.android.support"
+        exclude module: "appcompat-v7", group: "com.android.support"
+    }
+
+    // From [InstallMaterial] Open Project ...
+    // 通用 android 开发包 依赖项
+    implementation("com.android.support:support-v13:$supportVersion")
+    implementation "com.android.support:support-annotations:$supportVersion"
+    implementation("com.android.support:support-v4:$supportVersion") {
+        exclude module: "support-annotations", group: "com.android.support"
+    }
+    // Google Material Design 设计支持库 10043-9916=127kb
+    implementation("com.android.support:design:$supportVersion") {
+        exclude module: "appcompat-v7", group: "com.android.support"
+        exclude module: "support-v4", group: "com.android.support"
+        exclude module: "recyclerview-v7", group: "com.android.support"
+    }
+    implementation("com.android.support:palette-v7:$supportVersion") {
+        exclude module: "support-v4", group: "com.android.support"
+    }
+    // RecycleView...
+    implementation("com.android.support:recyclerview-v7:$supportVersion") {
+        exclude module: "support-v4", group: "com.android.support"
+        exclude module: "support-annotations", group: "com.android.support"
+    }
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation("com.android.support:animated-vector-drawable:$supportVersion")
+    implementation("com.android.support:support-vector-drawable:$supportVersion")
+    implementation("com.android.support:appcompat-v7:$supportVersion") {
+        //exclude module: "support-v4", group: "com.android.support"
+        exclude module: "animated-vector-drawable", group: "com.android.support"
+        exclude module: "support-vector-drawable", group: "com.android.support"
+    }
+
+    compile files('libs/ysidcard.jar')
+    //compile fileTree(dir: "libs", include: ["*.jar"])
+
+    // https://github.com/JoanZapata/android-iconify
+    implementation('com.joanzapata.iconify:android-iconify:2.2.2') {
+        exclude module: "support-v4", group: "com.android.support"
+    }
+    // (v4.4)
+    implementation('com.joanzapata.iconify:android-iconify-fontawesome:2.2.2') {
+        exclude module: "android-iconify", group: "com.joanzapata.iconify"
+    }
+
+    // EventBus 事件总线
+    // 启用事件总线通讯 https://github.com/greenrobot/EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    // Glide
+    // [https://github.com/bumptech/glide/releases]
+    // [使用Glide4.0加载图片 没有clean出错了](http://www.jianshu.com/p/1dafedb7c858)
+    // [RegistersComponents.registerComponents 报错！okhttp3-integration 相关](https://github.com/LuckSiege/PictureSelector/issues/162)
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+    // Glide's OkHttp3 Integration
+    compile 'com.github.bumptech.glide:okhttp3-integration:4.3.1@aar'
+}

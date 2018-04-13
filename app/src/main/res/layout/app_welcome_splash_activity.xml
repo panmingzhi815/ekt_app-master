@@ -1,0 +1,91 @@
+<LinearLayout android:id="@+id/welcomeSplashLayout_LL"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_color"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/welcomeLayout_RL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg"
+        android:visibility="gone">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/welcomeWeb_ViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:id="@+id/welcomeSteps_LL"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:background="#00000000"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/welcomeStepSeparator_TV"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#55000000"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/skipPager_Btn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="跳过"
+                    android:textColor="#000"
+                    android:textSize="16sp"/>
+
+                <com.hbtl.view.CirclePageIndicator
+                    android:id="@+id/welcomePagerIndicator_CPI"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:id="@+id/nextPager_ITV"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="{fa-angle-right}"
+                    android:textColor="#000"
+                    android:textSize="20sp"/>
+
+                <Button
+                    android:id="@+id/donePager_Btn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="完成"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_bg"/>
+
+</LinearLayout>

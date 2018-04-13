@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/toolbar_linear_layout"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_left_tab_relative_layout"
+        android:layout_width="80dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/toolbar_left_tab_text"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:text=""
+            android:textColor="@color/recharge_record_title"
+            android:textSize="@dimen/actionbar_title_textsize"
+            android:textStyle="bold"/>
+
+        <View
+            android:id="@+id/toolbar_left_tab_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#fff"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/toolbar_center_tab_relative_layout"
+        android:layout_width="80dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/toolbar_center_tab_text"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:text=""
+            android:textColor="@color/recharge_record_title"
+            android:textSize="@dimen/actionbar_title_textsize"
+            android:textStyle="bold"/>
+
+
+        <View
+            android:id="@+id/toolbar_center_tab_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#fff"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/toolbar_right_tab_relative_layout"
+        android:layout_width="80dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/toolbar_right_tab_text"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:text=""
+            android:textColor="@color/recharge_record_title"
+            android:textSize="@dimen/actionbar_title_textsize"
+            android:textStyle="bold"/>
+
+
+        <View
+            android:id="@+id/toolbar_right_tab_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#fff"/>
+    </RelativeLayout>
+</LinearLayout>

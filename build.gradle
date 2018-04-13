@@ -1,0 +1,56 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    // defined global vars
+    ext.kotlin_version = '1.2.0'
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        // 依赖android提供的1.3.1的gradle build
+        // http://developer.android.com/tools/revisions/gradle-plugin.html
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
+        // Realm Database Support https://realm.io/docs/java/latest/
+        classpath "io.realm:realm-gradle-plugin:4.3.1"
+
+        // add kotlin developer support
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
+
+// 可以配置 JavaCompile 编译参数
+apply plugin: 'java'
+
+allprojects {
+    repositories {
+        jcenter()
+        //maven { url 'https://jitpack.io' }
+        //maven { url 'https://s3.amazonaws.com/repo.commonsware.com' }
+        //maven { url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo' }
+        //maven { url '// From Conversations ...' }
+        mavenCentral()
+        //maven { url 'http://lorenzo.villani.me/android-cropimage/' }
+        google()
+    }
+
+    // 为 Gradle 配置编译参数 [How can I set the compileOptions for my Gradle Java plugin?](http://stackoverflow.com/questions/29593500/how-can-i-set-the-compileoptions-for-my-gradle-java-plugin)
+    tasks.withType(JavaCompile) {
+        configure(options) {
+            options.encoding = "UTF-8"  // 设置编码  // http://www.cnblogs.com/tianzhijiexian/p/4633377.html
+            options.compilerArgs << "-Xdiags:verbose" //  << '-Xlint:deprecation' <<  '-Xlint:unchecked' examples
+        }
+    }
+}
+
+artifacts {}
+
+configurations {}
+dependencies {}
+
+//sourceSets { }
+subprojects {}
+//publishing { }

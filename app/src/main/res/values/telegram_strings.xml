@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- *************************************************************************************************************************************************************************************************************** -->
+    <string name="AppName">Dove</string>
+    <string name="LanguageName">中文</string>
+
+    <string name="Yesterday">昨天</string>
+    <string name="NoResult">没有结果</string>
+
+    <string name="TodayAt">于今天</string>
+    <string name="YesterdayAt">于昨天</string>
+    <string name="LastSeen">最后上线</string>
+    <string name="LastSeenDate">最后上线</string>
+
+    <string name="TextSize">消息文本大小</string>
+    <string name="Language">语言</string>
+    <string name="DeleteLocalization">删除本地化文件?</string>
+
+    <string name="Done">完成</string>
+    <string name="Cancel">取消</string>
+    <string name="Delete">删除</string>
+
+    <string name="formatterMonthYear">MMMM yyyy</string>
+    <string name="formatterMonth">MMMdd\'日\'</string>
+    <string name="formatterYear">yy\'年\'MM\'月\'dd\'日\'</string>
+    <string name="formatterYearMax">yyyy\'年\'MM\'月\'dd\'日\'</string>
+    <string name="chatDate">MMMMd\'日\'</string>
+    <string name="chatFullDate">yyyy\'年\'MMMMd\'日\'</string>
+    <string name="formatterWeek">EEE</string>
+    <string name="formatterDay24H">HH:mm</string>
+    <string name="formatterDay12H">h:mm a</string>
+    <string name="formatDateAtTime">%1$s %2$s</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/header_background"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/common_info_header_btn"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <!-- 侧边栏菜单 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- 侧边栏菜单-圆形图片 -->
+        <com.hbtl.view.CircleImageView
+            android:id="@+id/aInfoPicture_CIV"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/avatar_default"
+            app:civ_border_color="@color/circle_bg"
+            app:civ_border_width="0dp" />
+
+        <!-- 侧边栏菜单-用户名称 -->
+        <TextView
+            android:id="@+id/aInfoName_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="张亚飞"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- 侧边栏菜单-顶部用户头像背景 -->
+    <LinearLayout
+        android:id="@+id/deviceInfo_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="visible">
+        <!--android:background="@drawable/account_space_bg_2"-->
+        <!--android:background="@drawable/bamboo"-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备号: "
+            android:textColor="#fff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/deviceId_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

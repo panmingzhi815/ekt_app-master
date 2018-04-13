@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--################################################################-->
+    <!--<color name="primary_dark">#E12929</color>-->
+    <!--<color name="accent">#FFFFFF</color>-->
+
+    <color name="iron">#CCCCCC</color>
+    <!--###################################################################-->
+
+
+    <!--<color name="colorPrimary">#106c99</color>-->
+    <!--<color name="colorPrimaryDark">#00FFFFFF</color>-->
+
+
+    <!--<color name="green_light">#ff99cc00</color>-->
+
+
+    <!--color keys-->
+    <!--http://baike.baidu.com/link?url=K10F5p13aWtM4tvuFIUE-7dj0h62GyYMb2X4E5NCZ6vVbT0xr6tDJhergIDTrptXeFoqepgVyf7Q0Lg9kVyMeK-->
+    <!--https://www.google.com/design/spec/style/color.html#-->
+    <!-- 红色 -->
+    <color name="red">#F44336</color>
+    <!-- 粉红色 -->
+    <!-- 紫色 -->
+    <!-- deep 紫色 -->
+    <!--靛青色-->
+    <!-- 蓝色 -->
+    <!-- deep 蓝色 -->
+    <!-- 青色 -->
+    <!-- 蓝绿色 -->
+    <!-- 绿色 -->
+    <!-- light 绿色 -->
+    <!-- 绿黄色 -->
+    <!-- 黄色 -->
+    <color name="yellow">#FFEB3B</color>
+    <!-- 琥珀色 -->
+    <!-- 橙色 -->
+    <!-- deep 黄色 -->
+    <!-- 棕色 -->
+    <!-- 灰色 -->
+    <color name="gray">#9E9E9E</color>
+    <!-- 蓝 灰色 -->
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <!-- 黑色 -->
+
+
+    <!-- Other -->
+
+    <!--金色-->
+    <!--玫瑰色-->
+    <!--宝蓝色-->
+    <color name="dodger_blue">#1e90ff</color>
+
+    <color name="common_info_header_btn">#6600b8d4</color>
+
+    <color name="touch_effect">#9ccc</color>
+    <dimen name="elevation_header">4dp</dimen>
+
+    <color name="btn_pressed_green_solid">#B6DA53</color>
+    <!--<color name="orange">#FFA500</color>-->
+
+    <!-- ############################################################################################################################################################ -->
+    <!--https://github.com/wada811/Android-Material-Design-Colors/blob/master/library/src/main/res/values/colors.xml-->
+    <!-- red -->
+
+    <!-- pink -->
+    <color name="md_pink_400">#ec407a</color>
+
+    <!-- purple -->
+
+    <!-- deep_purple -->
+
+    <!-- indigo -->
+
+    <!-- blue -->
+
+    <!-- light_blue -->
+
+    <!-- cyan -->
+
+    <!-- teal -->
+
+    <!-- green -->
+
+    <!-- light_green -->
+
+    <!-- lime -->
+
+    <!-- yellow -->
+
+    <!-- amber -->
+
+    <!-- orange -->
+
+    <!-- deep_orange -->
+
+    <!-- brown -->
+
+    <!-- grey -->
+    <!-- <color name="md_grey_1000">#000000</color> -->
+    <!-- <color name="md_grey_1000">#ffffff</color> -->
+
+    <!-- blue_grey -->
+
+    <!-- ##################################################################################################################################################################### -->
+
+    <!-- common_info_* -->
+    <color name="common_info_row_label">#757575</color>
+    <color name="common_info_row_value">#000000</color>
+
+    <!--material_design colors-->
+    <color name="theme_danger">#f44336</color>
+
+
+    <color name="primary">#009688</color>
+    <!--<color name="accent">#eeff41</color>-->
+
+    <!-- toolbar -->
+
+    <!-- Other- -->
+
+    <!--通用全局 Toolbar 背景色-->
+    <!--<color name="main_toolbar_color">#02baff</color>-->
+    <color name="main_toolbar_color">#008DF2</color>
+
+    <color name="theme_color">#ff06a81f</color>
+    <color name="main_bg">#F6F6F6</color>
+    <color name="main_color_nor">#02baff</color>
+    <color name="main_color">#028ce6</color>
+    <color name="main_disable">#C1C1C1</color>
+    <color name="main_divider_color">#ffcecece</color>
+    <color name="circle_bg">#00000000</color>
+
+
+    <color name="done_text_color_disabled">#ffcccccc</color>
+    <color name="calendar_header">#ff999999</color>
+
+    <color name="cornflower_blue">#598deb</color>
+
+    <color name="material_indigo_500">#3F51B5</color>
+    <color name="material_indigo_600">#3949AB</color>
+
+    <color name="menu_icon_color">#ffffff</color>
+    <color name="menu_title_color">#ffffff</color>
+
+    <color name="main_tab_color">#63B8FF</color>
+
+    <color name="item_white_nor">#ffffff</color>
+    <color name="item_black_sel">#EDEDED</color>
+
+    <color name="me_text_content_color">#727272</color>
+
+    <color name="log_off_nor">#E91E63</color>
+    <color name="log_off_sel">#FF5252</color>
+
+    <color name="qrcode_textcolor">#696969</color>
+
+    <color name="area_line_border">#11AB19</color>
+
+    <color name="main_translucent">#aa000000</color>
+
+
+    <!--<color name="white">#fff</color>-->
+    <!--<color name="orange">#ff5722</color>-->
+    <!--<color name="gray">#888888</color>-->
+
+
+    <!-- ########################################### Install Material ##################################################### -->
+
+    <color name="style_color_accent">#01bcd5</color>
+
+    <!-- ############################################## Start Switch Button Color ... #################################################### -->
+
+    <!-- ############################################## End Switch Button Color ... #################################################### -->
+
+</resources>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
+
+    <include layout="@layout/app_main_toolbar_view_include"/>
+    <!--    <android.support.v7.widget.Toolbar
+            android:id="@+id/appNav_ToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_toolbar_color"
+            android:minHeight="?attr/actionBarSize"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:theme="@style/Toolbar">
+
+        </android.support.v7.widget.Toolbar>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/searchStartAreaOne_LL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/item_white_selector"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="起始地"
+                android:textColor="#000"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/searchStartAreaOne_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="起始地"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="{fa-long-arrow-right}"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <LinearLayout
+            android:id="@+id/searchEndAreaOne_LL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/item_white_selector"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="目的地"
+                android:textColor="#000"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/searchEndAreaOne_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="目的地"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/confirm_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:background="@drawable/main_selector"
+        android:text="确定"
+        android:textColor="#fff"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/historyTitle_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="搜索历史"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/searchHistory_LV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"/>
+
+</LinearLayout>

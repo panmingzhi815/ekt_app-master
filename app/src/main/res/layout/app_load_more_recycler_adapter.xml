@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp">
+
+        <!--        <com.dahuo.learn.refresh.MaterialProgressBarSupport
+                    android:id="@+id/progress_view"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    app:progressColor="@color/line_color_run_speed_13"
+                    app:progressBackgroundColor="@color/progress_background_light"
+                    app:progressSmallSize="true" />-->
+
+        <TextView
+            android:id="@+id/pageListLoading_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/app_loading_more"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_margin="4dp">
+
+        <com.hbtl.view.MetaBallView
+            android:id="@+id/pageListLoading_MBV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
+

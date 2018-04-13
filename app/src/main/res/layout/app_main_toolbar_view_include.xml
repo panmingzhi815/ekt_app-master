@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appNav_ToolBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_toolbar_color"
+    android:elevation="@dimen/elevation_header"
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/Toolbar"
+    tools:ignore="UnusedAttribute">
+    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+    <!--android:theme="@style/Toolbar"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:theme="@style/oToolbar"-->
+
+
+    <!--android:theme="@style/Toolbar"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:theme="@style/Toolbar" 需要添加这行，否则 Toolbar Icon 和 Title 字体颜色不是白色，而是难看的灰色-->
+    <!--app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar" 弹出菜单的样式-->
+    <!--android:fitsSystemWindows="false"-->
+    <!--android:background="@color/main_toolbar_color"-->
+    <!--android:paddingTop="@dimen/toolbar_padding_top"-->
+    <!--android:background="?attr/colorPrimary"-->
+</android.support.v7.widget.Toolbar>

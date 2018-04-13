@@ -1,0 +1,153 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- ################################################################# -->
+    <!--<dimen name="activity_horizontal_margin" tools:ignore="UnusedResources">16dp</dimen>-->
+    <!--<dimen name="activity_vertical_margin" tools:ignore="UnusedResources">16dp</dimen>-->
+
+    <!-- Preference fragment padding, bottom -->
+    <!-- Preference fragment padding, sides -->
+
+    <!-- outsideOverlay -->
+    <!-- ################################################################# -->
+
+    <!-- ################################################################# -->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_height">160dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--<dimen name="activity_horizontal_margin">16dp</dimen>-->
+    <!--<dimen name="activity_vertical_margin">16dp</dimen>-->
+
+    <!--test 测试相关-->
+    <!--<color name="blue">#303F9F</color>-->
+
+    <declare-styleable name="MaterialViewPager">
+        <attr name="viewpager_header" format="reference"/>
+        <attr name="viewpager_logo" format="reference"/>
+        <attr name="viewpager_pagerTitleStrip" format="reference"/>
+        <attr name="viewpager_viewpager" format="reference"/>
+        <attr name="viewpager_logoMarginTop" format="dimension"/>
+        <attr name="viewpager_color" format="color"/>
+        <attr name="viewpager_headerHeight" format="dimension"/>
+        <attr name="viewpager_headerAlpha" format="float"/>
+        <attr name="viewpager_imageHeaderDarkLayerAlpha" format="float"/>
+        <attr name="viewpager_hideToolbarAndTitle" format="boolean"/>
+        <attr name="viewpager_hideLogoWithFade" format="boolean"/>
+        <attr name="viewpager_enableToolbarElevation" format="boolean"/>
+        <attr name="viewpager_parallaxHeaderFactor" format="float"/>
+        <attr name="viewpager_headerAdditionalHeight" format="dimension"/>
+        <attr name="viewpager_displayToolbarWhenSwipe" format="boolean"/>
+        <attr name="viewpager_transparentToolbar" format="boolean"/>
+        <attr name="viewpager_animatedHeaderImage" format="boolean"/>
+        <attr name="viewpager_disableToolbar" format="boolean"/>
+    </declare-styleable>
+    <!-- From: file:/Users/florentchampigny/Documents/MaterialViewPager/materialviewpager/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <!-- From: file:/Users/florentchampigny/Documents/MaterialViewPager/materialviewpager/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="materialviewpager_headerImageDarkLayer" type="id"/>
+    <item name="materialviewpager_imageHeader" type="id"/>
+    <item name="materialviewpager_pagerTitleStrip" type="id"/>
+    <item name="materialviewpager_viewpager" type="id"/>
+    <!-- From: file:/Users/florentchampigny/Documents/MaterialViewPager/materialviewpager/src/main/res/values/styles.xml -->
+
+
+    <!--toolbar 相关-->
+
+    <dimen name="actionbar_title_textsize">18sp</dimen>
+
+    <!--time_picker 相关-->
+
+    <!--material_edit 相关-->
+
+
+    <!--app 设计相关-->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--与 Conversations 冲突，暂时注释掉-->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="menu_padding">10dp</dimen>
+    <dimen name="menu_title_size">13sp</dimen>
+    <dimen name="menu_icon_title_magin">5dp</dimen>
+
+    <!--common 相关-->
+
+    <!-- ## -->
+    <!--<dimen name="common_info_outer_ll_bottom_margin">5dp</dimen>-->
+
+    <!--<dimen name="common_info_header_ll_padding">3dp</dimen>-->
+
+    <!--<dimen name="common_info_header_ll_tv_padding">2dp</dimen>-->
+
+    <!--<dimen name="common_info_row_ll_padding">16dp</dimen>-->
+    <dimen name="common_info_row_ll_padding_top">10dp</dimen>
+    <dimen name="common_info_row_ll_padding_bottom">12dp</dimen>
+
+    <dimen name="common_info_row_label_ll_tv_padding">2dp</dimen>
+    <dimen name="common_info_row_label_ll_tv_size">14sp</dimen>
+    <dimen name="common_info_row_value_ll_tv_padding">2dp</dimen>
+    <dimen name="common_info_row_value_ll_tv_size">16sp</dimen>
+
+    <!--account_space 相关-->
+
+    <!--share_info  相关-->
+
+    <!--company 相关-->
+
+    <!--truck 相关-->
+
+    <!--park 相关-->
+
+    <!--pipeline 相关-->
+
+    <!--trade 交易相关-->
+
+    <!--order 相关-->
+
+    <!--im 聊天相关-->
+
+
+    <!--other 其它相关-->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--<dimen name="activity_horizontal_margin">16dp</dimen>-->
+    <!--<dimen name="activity_vertical_margin">16dp</dimen>-->
+
+    <!-- ########################################################################## Start Android-ObservableScrollView ########################################################################### -->
+    <!--<dimen name="margin_standard">16dp</dimen>-->
+    <!--<dimen name="margin_short">8dp</dimen>-->
+    <!--<dimen name="margin_extra_short">4dp</dimen>-->
+
+    <!--<dimen name="toolbar_margin_start">72dp</dimen>-->
+
+    <!--<dimen name="header_text_tab_height">64dp</dimen>-->
+
+    <!--<dimen name="header_bar_height">72dp</dimen>-->
+    <!--<dimen name="intersection_height">16dp</dimen>-->
+
+    <!--<dimen name="sliding_slop">32dp</dimen>-->
+    <!--<dimen name="sliding_overlay_blur_size">4dp</dimen>-->
+
+
+    <!-- space dimens info ... -->
+    <!--<dimen name="flexible_space_height">72dp</dimen>-->
+    <!--弥补底部不足，应大于40以上都可以正确调整位置-->
+    <!--<dimen name="flexible_space_show_fab_offset">120dp</dimen>-->
+
+    <!-- company dimens info ... -->
+    <!--弥补底部不足，应大于40以上都可以正确调整位置-->
+
+    <!-- park dimens info ... -->
+    <!--弥补底部不足，应大于40以上都可以正确调整位置-->
+
+    <!-- share dimens info ... -->
+    <!--弥补底部不足，应大于40以上都可以正确调整位置-->
+
+    <!-- ########################################################################## End Android-ObservableScrollView ########################################################################### -->
+
+    <!-- ########################################### Install Material ############################################### -->
+
+    <!-- ########################################### Start Switch Button dimens ... ########################################## -->
+
+    <!-- ########################################### End Switch Button dimens ... ########################################## -->
+</resources>

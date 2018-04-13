@@ -1,0 +1,5 @@
+//include ':libs:bdwallet_pay_sdk', ':libs:MemorizingTrustManager'
+//include ':Conversations'
+//include ':library'
+//include ':com.coam.plugins.carbon'
+include ':app'

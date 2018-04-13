@@ -1,0 +1,26 @@
+# 请依次执行以下命令消除相关文件跟踪cache
+# git rm --cache .gradle/*
+# git rm --cache .idea/*
+# git rm --cache build/*
+# ...
+
+# Built application files
+/*/build
+/*/*/build
+/.idea
+/build
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle generated files
+.gradle
+
+# User-specific configurations
+*.iml
+
+# OS-specific files
+.DS_Store
+*.DS_Store
+/app/debug/
+/app/release/

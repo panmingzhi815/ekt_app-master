@@ -1,0 +1,239 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+    <include layout="@layout/app_main_toolbar_view_include"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/asiApp_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.hbtl.tm.cells.InfoHeaderCell
+                    android:id="@+id/asiAppHeader_Ihc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:cTitle="软件设置"/>
+
+                <com.hbtl.tm.cells.InfoTagCell
+                    android:id="@+id/asiAppInfoLanguage_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="语言"
+                    app:cTag="中文"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoSwitchCell
+                    android:id="@+id/asiAppInfoAudio_Isc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="@string/EnableAppAudio"
+                    app:vDivider="true"
+                    app:vOpen="true"/>
+
+                <com.hbtl.tm.cells.InfoSwitchCell
+                    android:id="@+id/asiAppInfoOae_Isc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="@string/EnableOffData"
+                    app:vDivider="true"
+                    app:vOpen="true"/>
+
+                <com.hbtl.tm.cells.InfoSwitchCell
+                    android:id="@+id/asiAppInfoPush_Isc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="@string/EnableAppPush"
+                    app:vDivider="true"
+                    app:vOpen="false"/>
+
+                <com.hbtl.tm.cells.InfoShadowCell
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/asiTest_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.hbtl.tm.cells.InfoHeaderCell
+                    android:id="@+id/asiTestHeader_Ihc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:cTitle="@string/TestEnvSetting"/>
+
+                <com.hbtl.tm.cells.InfoTextCell
+                    android:id="@+id/asiTestInfoSip_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="@string/TestServerHost"
+                    app:cText="https://www.coam.com"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoTagCell
+                    android:id="@+id/asiTestInfoOud_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="离线数据单次上报量"
+                    app:cTag="0"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoSwitchCell
+                    android:id="@+id/asiTestInfoAuto_Isc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cLabel="An-App Browser"
+                    app:cText="An-App Browser..."
+                    app:vDivider="true"
+                    app:vOpen="true"/>
+
+                <com.hbtl.tm.cells.InfoTextCell
+                    android:id="@+id/asiTestInfoMan_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cLabel="漫游时"
+                    app:cText="无"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoTextCell
+                    android:id="@+id/asiTestInfoVoice_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cLabel="铃声"
+                    app:cText="无"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoPrivacyCell
+                    android:id="@+id/asiTestInfoPrivacy_Ipc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cText="无"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoColorCell
+                    android:id="@+id/asiTestInfoColor_Icc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cText="无"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoSnsCell
+                    android:id="@+id/asiTestInfoSns_Isc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cLabel="微-信"
+                    app:cText="尚未-绑定"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoLocationCell
+                    android:id="@+id/asiTestInfoLocation_Ilc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:cLabel="用户地址"
+                    app:cText="详细地址-详细地址-详细地址-详细地址-详细地址-详细地址-详细地址-详细地址-详细地址-详细地址-"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoShadowCell
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/asiEkt_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.hbtl.tm.cells.InfoHeaderCell
+                    android:id="@+id/asiEktHeader_Ihc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:cTitle="@string/EKT_SUPPORT"/>
+
+                <com.hbtl.tm.cells.InfoTagCell
+                    android:id="@+id/asiEktInfoFaq_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="常见问题"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoTagCell
+                    android:id="@+id/asiEktInfoAbout_Itc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cLabel="@string/EKT_ABOUT"
+                    app:vDivider="true"/>
+
+                <com.hbtl.tm.cells.InfoLabelCell
+                    android:id="@+id/asiEktFooter_Ilc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/selector_subtle"
+                    android:orientation="vertical"
+                    app:cInfo="Ekt for Android"
+                    app:vDivider="false"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

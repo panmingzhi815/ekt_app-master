@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/my_coam_id"
+        android:checkableBehavior="single">
+        <!-- 侧边栏菜单-个人中心 -->
+        <item
+            android:id="@+id/myAccountSpace_V"
+            android:icon="@drawable/ic_action_settings"
+            android:title="入园窗口"/>
+
+    </group>
+
+    <!-- 侧边栏菜单-设置 -->
+    <group
+        android:id="@+id/my_id"
+        android:checkableBehavior="single">
+        <!--侧边栏菜单-修改密码-->
+        <item
+            android:id="@+id/myAppSetting_V"
+            android:layout_alignParentBottom="true"
+            android:icon="@drawable/ic_action_settings"
+            android:title="设置"/>
+
+        <!-- <item
+             android:id="@+id/myAccountLogOut_V"
+             app:itemIconTint="@color/red"
+             android:layout_alignParentBottom="true"
+             android:icon="@drawable/ic_action_settings"
+             android:title="登出"/>-->
+
+        <item
+            android:id="@+id/myAppQuit_V"
+            android:layout_alignParentBottom="true"
+            android:icon="@drawable/ic_action_settings"
+            android:title="退出"
+            android:visible="false"
+            app:itemTextColor="@color/red"/>
+    </group>
+</menu>

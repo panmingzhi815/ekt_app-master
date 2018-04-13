@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
+
+    <include layout="@layout/app_main_toolbar_view_include"/>
+    <!--    <android.support.v7.widget.Toolbar
+            android:id="@+id/appNav_ToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_toolbar_color"
+            android:minHeight="?attr/actionBarSize"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:theme="@style/Toolbar">
+
+        </android.support.v7.widget.Toolbar>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="25dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="腾旅一卡通"
+            android:textColor="#000000"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="V 1.0"
+            android:textColor="#9E9E9E"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <!--<include layout="@layout/app_divider_line_layout"/>-->
+    <com.hbtl.plugins.carbon.widget.Divider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/appVersionLayout_RL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="版本更新"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/updateArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/arrow_item"/>
+
+        <TextView
+            android:id="@+id/appVersion_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/updateArrow"
+            android:text="已是最新版本"
+            android:textColor="#9E9E9E"
+            android:textSize="18sp"/>
+
+        <ProgressBar
+            android:id="@+id/appUpdate_ProBar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/updateArrow"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <!--<include layout="@layout/app_divider_line_layout"/>-->
+    <com.hbtl.plugins.carbon.widget.Divider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/appFunctionLayout_RL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="功能介绍"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/arrow_item"/>
+    </RelativeLayout>
+
+    <include layout="@layout/app_divider_line_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/appFeedbackLayout_RL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="意见反馈"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/arrow_item"/>
+    </RelativeLayout>
+
+    <!--<include layout="@layout/app_divider_line_layout"/>-->
+    <com.hbtl.plugins.carbon.widget.Divider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/contactUsLayout_RL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="联系我们"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/arrow_item"/>
+    </RelativeLayout>
+
+    <!--<include layout="@layout/app_divider_line_layout"/>-->
+    <com.hbtl.plugins.carbon.widget.Divider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/appCopyrightInfo_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Copyright ©2013-2015 ShangYun. All Rights Reserved."
+            android:textColor="#9E9E9E"
+            android:textSize="10sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/appCopyrightInfo_TV"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/appOfficialWebInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="官网"
+                android:textColor="@color/main_color"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="|"
+                android:textColor="#A2CD5A"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/appServiceTermInfo_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="服务条款"
+                android:textColor="@color/main_color"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

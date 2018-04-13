@@ -1,0 +1,80 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Application theme. -->
+
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+<!--    <style name="AppBaseTheme" parent="android:Theme.Light">
+        &lt;!&ndash;
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        &ndash;&gt;
+    </style>-->
+
+    <!-- Application theme. -->
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <item name="colorPrimary">#ff9C27B0</item>
+        <item name="colorAccent">#ffFF5252</item>
+        <!--<item name="carbon_rippleColor">#42ffffff</item>-->
+
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">@color/primary</item>-->
+        <item name="colorPrimaryDark">@color/yellow</item>
+        <!--<item name="colorAccent">@color/accent</item>-->
+
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="windowActionBar">false</item>-->
+
+        <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>-->
+
+        <!-- http://yaohp.github.io/2015/10/19/Android 从4.4(KitKat)透明状态栏的应用 /-->
+        <!--状态栏透明-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--导航栏透明-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+
+    <!--需要添加此样式应用到一般 Toolbar 组件的 theme，可使默认背景色为白色-->
+    <style name="Toolbar" parent="Theme.AppCompat">
+        <!--<item name="colorPrimary">@color/primary</item>-->
+        <!--<item name="colorPrimaryDark">@color/primaryDark</item>-->
+        <!--<item name="colorAccent">@color/accent</item>-->
+    </style>
+
+    <!--    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+            <item name="spinBars">true</item>
+            <item name="color">@android:color/white</item>
+        </style>-->
+
+    <style name="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CoamAppTheme" parent="AppTheme">
+        <!-- Fixed for: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="windowActionBar">false</item>-->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+        <!--延伸到状态栏-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+
+        <item name="colorPrimary">@color/material_indigo_500</item>
+        <item name="colorPrimaryDark">@color/material_indigo_600</item>
+        <!--<item name="colorAccent">@color/material_pink_500</item>-->
+        <item name="colorAccent">@color/style_color_accent</item>
+        <!--<item name="lbSwitchStyle">@style/switch_optimus_iphone</item>-->
+
+    </style>
+    <!-- #################################################### End InstallMaterial Design Style ... ##################################################### -->
+</resources>

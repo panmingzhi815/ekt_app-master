@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/mDrawerLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:background="@color/main_bg"-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dodger_blue"
+        android:orientation="vertical">
+        <!--android:fitsSystemWindows="true"-->
+
+        <include
+            layout="@layout/app_main_toolbar_view_include"/>
+
+        <FrameLayout
+            android:id="@+id/myFrame_FL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <!--通用二维码扫码-->
+            <!--android:layout_marginTop="@dimen/menu_padding"-->
+            <LinearLayout
+                android:id="@+id/commonMainAuthHeader_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_pink_400"
+                android:foreground="@drawable/selector_subtle"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp">
+                <!-- 添加触摸 ripple 效果，参考 topeka - item_category.xml -->
+                <!--android:foreground="@drawable/selector_subtle"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="版本号: "
+                    android:textColor="@color/menu_title_color"
+                    android:textSize="@dimen/menu_title_size"/>
+
+                <TextView
+                    android:id="@+id/appRunVersion_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="_"
+                    android:textColor="@color/menu_title_color"
+                    android:textSize="@dimen/menu_title_size"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/gray"
+                android:foreground="@drawable/selector_subtle"
+                android:gravity="center"
+                android:orientation="vertical">
+                <!-- 添加触摸 ripple 效果，参考 topeka - item_category.xml -->
+                <!--android:foreground="@drawable/selector_subtle"-->
+
+                <LinearLayout
+                    android:id="@+id/commonMainAuthEnter_Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="入园次数: "
+                        android:textColor="@color/menu_title_color"
+                        android:textSize="@dimen/menu_title_size"/>
+
+                    <TextView
+                        android:id="@+id/appMainAuthEnter_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="_"
+                        android:textColor="@color/yellow"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="离线次数: "
+                        android:textColor="@color/menu_title_color"
+                        android:textSize="@dimen/menu_title_size"/>
+
+                    <TextView
+                        android:id="@+id/appNoAuthEnter_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="_"
+                        android:textColor="@color/yellow"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/appUpAuthTs_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="30dp"
+                        android:text="[upTs: _]"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/menu_title_size"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--通用二维码扫码-->
+            <LinearLayout
+                android:id="@+id/commonQrCodeBody_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="78dp"
+                android:background="@color/yellow"
+                android:foreground="@drawable/selector_subtle"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp">
+                <!--android:background="@color/me_text_content_color"-->
+
+                <ImageView
+                    android:id="@+id/myTakeAvatar_IV"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="30dp"
+                    android:background="@color/common_info_header_btn"/>
+                <!--android:src="@drawaread_icaoma"-->
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!--通用二维码扫码-->
+        <LinearLayout
+            android:id="@+id/commonQrCodeInfo_Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="@dimen/menu_padding"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!--android:background="@color/me_text_content_color"-->
+
+            <TextView
+                android:id="@+id/commonIcReaderStatus_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/menu_icon_title_magin"
+                android:text="请将身份证放置于机器上方"
+                android:textColor="@color/menu_title_color"
+                android:textSize="25dp"/>
+
+            <com.hbtl.view.RainbowBar
+                android:id="@+id/commonIcReaderStatus_RBar"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:visibility="gone"
+                app:rainbowbar_color="@color/white"
+                app:rainbowbar_hspace="16dp"
+                app:rainbowbar_vspace="3dp">
+            </com.hbtl.view.RainbowBar>
+        </LinearLayout>
+
+        <!--通用二维码扫码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:orientation="vertical">
+            <!-- 添加触摸 ripple 效果，参考 topeka - item_category.xml -->
+            <!--android:foreground="@drawable/selector_subtle"-->
+
+            <LinearLayout
+                android:id="@+id/commonQrCodeScan_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/me_text_content_color"
+                android:foreground="@drawable/selector_subtle"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="{fa-qrcode}"
+                    android:textColor="@color/menu_icon_color"
+                    android:textSize="36sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/menu_icon_title_magin"
+                    android:text="扫描二维码"
+                    android:textColor="@color/menu_title_color"
+                    android:textSize="@dimen/menu_title_size"/>
+            </LinearLayout>
+
+            <com.hbtl.view.RainbowBar
+                android:id="@+id/commonOaeUploadStatus_RBar"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:visibility="gone"
+                app:rainbowbar_color="@color/white"
+                app:rainbowbar_hspace="200dp"
+                app:rainbowbar_vspace="1dp">
+            </com.hbtl.view.RainbowBar>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_View"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/menu_common_account_space_nav_header_main"
+        app:menu="@menu/common_account_space_activity_main_drawer_menu"/>
+    <!--app:headerLayout="@layout/cheese_nav_header"-->
+    <!--app:menu="@menu/cheese_drawer_view"-->
+
+</android.support.v4.widget.DrawerLayout>

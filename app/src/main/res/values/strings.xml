@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ################################################## start coam app test ########################################################################################### -->
+    <!-- ################################################## end coam app test ########################################################################################### -->
+
+    <!-- ## app ##################################################################################################################################### -->
+    <!-- ## common ##################################################################################################################################### -->
+    <!-- ## account ##################################################################################################################################### -->
+    <!-- ## qrcode ##################################################################################################################################### -->
+    <string name="qrcode_action_menu">扫码说明</string>
+
+    <!-- ################################################## start coam app ########################################################################################### -->
+    <string name="app_name">腾旅一卡通</string>
+
+    <string name="auth_cancel">授权操作已取消</string>
+    <string name="auth_error">授权失败</string>
+    <string name="auth_complete">授权成功</string>
+
+    <!-- -->
+    <!-- -->
+    <string name="nav_drawer_open">Open navigation drawer</string>
+    <string name="nav_drawer_close">Close navigation drawer</string>
+
+    <string name="qrcode_text">入园二维码</string>
+
+    <string name="official_web">http://www.51ekt.com/</string>
+    <string name="service_term">http://www.51ekt.com</string>
+    <string name="official_phone_number_str">027-83268288</string>
+    <string name="official_phone_number">02783268288</string>
+    <string name="official_wechat">腾旅一卡通</string>
+
+    <!-- ################################################## end coam app ########################################################################################### -->
+
+    <!-- ################################################## start paho demo ################################################## -->
+    <!--<string name="connect">Connect</string>-->
+
+    <!--<string name="publish">Publish</string>-->
+
+    <!--<string name="save">Save</string>-->
+    <string name="title_activity_connection_details">Connection Details</string>
+
+    <!--<string name="delete">Delete Connection</string>-->
+
+    <!-- Strings that need formatting  -->
+
+    <!-- Hints -->
+    <!--<string name="select">select</string>-->
+    <!-- ############################################################ end paho demo ############################################################################ -->
+
+    <!-- ############################################################ 临时补充 ############################################################################ -->
+    <!--<string name="progress_dialog_indeterminate">Progress Dialog (Indeterminate)</string>-->
+    <!--<string name="progress_dialog_indeterminate_horizontal">Progress Dialog (Horizontal Indeterminate)</string>-->
+    <string name="progress_dialog">入园验证</string>
+    <string name="please_wait">正在验证,请稍等…</string>
+    <!-- ############################################################ 临时补充 ############################################################################ -->
+    <string name="change_password">修改密码</string>
+    <string name="current_password">当前密码</string>
+    <string name="password">密码</string>
+    <string name="new_password">新密码</string>
+    <string name="account_settings_confirm_password">确认密码</string>
+    <string name="cancel">取消</string>
+
+    <string name="APP_SETTINGS">软件设置</string>
+    <string name="EnableAppAudio">使用扬声器播放语音</string>
+    <string name="EnableOffData">启用离线数据上报</string>
+    <string name="EnableAppPush">启用消息推送服务</string>
+    <string name="TestEnvSetting">测试环境设置</string>
+    <string name="TestServerHost">测试服务器地址</string>
+    <string name="EKT_SUPPORT">服务支持</string>
+    <string name="EKT_ABOUT">关于腾旅E卡通</string>
+
+    <string name="TestServerMpi">更新</string>
+
+    <string name="ClearHistoryCache">Delete from cache</string>
+    <string name="AreYouSureClearHistoryChannel">Delete all cached text and media from this channel?</string>
+    <string name="ChannelLeaveAlert">Are you sure you want to leave the channel?</string>
+    <string name="DeleteMegaMenu">Delete group</string>
+    <string name="Set">设置</string>
+    <string name="LedDisabled">禁用</string>
+    <string name="SoundDefault">默认</string>
+    <string name="OK">确定</string>
+    <string name="LedColor">LED 颜色</string>
+    <string name="KeepMediaInfo">Photos, videos and other files from cloud chats that you have <![CDATA[<b>not accessed</b>]]> during this period will be removed from this device to save disk space.\n\nAll media will stay in the Telegram cloud and can be re-downloaded if you need it again.</string>
+
+    <string name="Save">Save</string>
+    <string name="TelegramFaqUrl">https://telegram.org/faq</string>
+    <string name="PrivacyPolicy">Privacy Policy</string>
+    <string name="PrivacyPolicyUrl">https://telegram.org/privacy</string>
+    <string name="ShareFile">分享</string>
+    <string name="ShareLink">分享链接</string>
+
+    <!-- 测试管理员授权认证 -->
+    <string name="adminAuthHeader">管理员认证</string>
+    <string name="adminAuthSubmit">验证</string>
+</resources>

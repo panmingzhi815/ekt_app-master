@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <!--android:fitsSystemWindows="false"-->
+
+    <include layout="@layout/app_main_toolbar_tabs_view_include"/>
+    <!--    <com.coam.view.ToolbarTabsView
+            android:id="@+id/appNav_ToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/main_toolbar_color"
+            android:fitsSystemWindows="true"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:theme="@style/Toolbar">
+            &lt;!&ndash;android:minHeight="?attr/actionBarSize"&ndash;&gt;
+            &lt;!&ndash;android:fitsSystemWindows="true"&ndash;&gt;
+            &lt;!&ndash;android:paddingTop="@dimen/status_bar_height"&ndash;&gt;
+
+        </com.coam.view.ToolbarTabsView>-->
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_bg"/>
+
+</LinearLayout>

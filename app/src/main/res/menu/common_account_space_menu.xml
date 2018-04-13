@@ -1,0 +1,105 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.hbtl.ui.menu.activity.TestMvpCommonAccountActivity">
+
+    <!-- 当前账户中心-导航条右侧可选-消息中心 Icon 和 消息数 -->
+    <item
+        android:id="@+id/accountSpaceNotify_action"
+        android:icon="@drawable/ic_action_notify"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="消息通知"
+        app:showAsAction="ifRoom"
+        android:visible="true"/>
+
+    <!-- 公共账户中心-导航条右侧分享用户名片 -->
+    <item
+        android:id="@+id/accountSpaceSnsShare_action"
+        android:icon="@drawable/ic_action_share"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="分享名片"
+        app:showAsAction="ifRoom"
+        android:visible="true"/>
+
+    <!-- 公共账户中心-导航条右侧分享用户二维码 -->
+    <item
+        android:id="@+id/accountSpaceShareQr_action"
+        android:icon="@drawable/menu_scan_w"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="分享名片"
+        app:showAsAction="ifRoom"
+        android:visible="true"/>
+
+    <!-- 公开账户中心-导航条右侧-发起合作 -->
+    <item
+        android:id="@+id/accountSpaceCoop_action"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="发起合作邀请"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <!-- 公开账户中心-导航条右侧-发起关注 -->
+    <item
+        android:id="@+id/accountSpaceFollow_action"
+        android:icon="@drawable/ic_tab_love_pressed"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="关注/取消关注"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <!-- 公开账户中心-导航条右侧-发起举报投诉 -->
+    <item
+        android:id="@+id/accountSpaceComplain_action"
+        android:icon="@drawable/abc_ic_menu_selectall_mtrl_alpha"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="投诉举报"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <!-- 公开账户中心-导航条右侧-发起聊天 -->
+    <item
+        android:id="@+id/accountSpaceImChat_action"
+        android:icon="@drawable/icon_header_comment"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="发起聊天"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <!--账户资金-代金券-->
+    <item
+        android:id="@+id/accountFundsCoupon_action"
+        android:icon="@drawable/aviary_iap_notification_group"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="代金券"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <!-- 常用联系人-可选导入通讯录联系人按钮 Icon -->
+    <item
+        android:id="@+id/accountContactImport_action"
+        android:icon="@drawable/ic_invited_answer"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="通讯录批量导入"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <!--常用联系人-手动添加联系人-->
+    <item
+        android:id="@+id/accountContactPlus_action"
+        android:icon="@drawable/ic_action_create_message"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="添加常用联系人"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+</menu>

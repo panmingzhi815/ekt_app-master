@@ -1,0 +1,28 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- Base application theme. -->
+    <!--<style name="AppTheme"-->
+           <!--parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+
+    <!-- ############################################################### -->
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+
+        <!--状态栏透明-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--导航栏透明-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+
+    <!-- ## End Copy From Carbon Style... ############################################################################################################################################### -->
+</resources>

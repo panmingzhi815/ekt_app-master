@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dodger_blue">
+
+    <FrameLayout
+        android:id="@+id/facesRecognition_FL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/surface_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.hbtl.view.DrawFacesView
+            android:id="@+id/faces_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+    <include layout="@layout/app_main_toolbar_view_include" />
+
+    <!--通用二维码扫码-->
+    <LinearLayout
+        android:id="@+id/commonFaceScan_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/menu_padding"
+        android:background="@color/common_info_header_btn"
+        android:foreground="@drawable/selector_subtle"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <!-- 添加触摸 ripple 效果，参考 topeka - item_category.xml -->
+        <!--android:foreground="@drawable/selector_subtle"-->
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{fa-connectdevelop}"
+            android:textColor="@color/menu_icon_color"
+            android:textSize="36sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/menu_icon_title_magin"
+            android:text="抓取面部图像"
+            android:textColor="@color/menu_title_color"
+            android:textSize="@dimen/menu_title_size" />
+    </LinearLayout>
+</RelativeLayout>

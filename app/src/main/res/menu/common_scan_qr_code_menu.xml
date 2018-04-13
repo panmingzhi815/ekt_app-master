@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.hbtl.ui.menu.activity.TestMvpCommonAccountActivity">
+
+    <!-- 导航条右侧可选消息中心 Icon 和 消息数 -->
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        android:menuCategory="secondary"
+        android:orderInCategory="1"
+        android:title="@string/qrcode_action_menu"
+        app:showAsAction="ifRoom"/>
+</menu>

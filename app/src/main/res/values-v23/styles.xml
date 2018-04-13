@@ -1,0 +1,16 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+
+        <!--状态栏透明-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--导航栏透明-->
+        <!--开启此项，会导致输入框获取焦点后，Toolbar 延展问题，需要另外加 [android:windowSoftInputMode="adjustPan"] 属性-->
+        <!--开启此项，会导致修改密码底部[取消|确认]按钮不能随软键盘的打开而上浮-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+</resources>

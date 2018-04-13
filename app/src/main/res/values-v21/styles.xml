@@ -1,0 +1,28 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--http://www.jianshu.com/p/ab937c80ed6e-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="colorPrimaryDark">@color/yellow</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+
+
+        <!--        <item name="windowActionBar">false</item>
+        <item name="android:colorPrimary">@color/yellow</item>
+        <item name="android:colorPrimaryDark">@color/cyan</item>-->
+
+        <!--状态栏透明-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--导航栏透明-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+    <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+
+</resources>

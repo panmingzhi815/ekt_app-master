@@ -1,0 +1,218 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/calendar_header"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
+
+    <include layout="@layout/app_main_toolbar_view_include"/>
+
+    <LinearLayout
+        android:id="@+id/scenicAuthBody_LL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <!--通用二维码扫码-->
+        <!--android:layout_marginTop="@dimen/menu_padding"-->
+        <LinearLayout
+            android:id="@+id/scenicAuthResult_LL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:foreground="@drawable/selector_subtle"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingBottom="6dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp">
+            <!-- 添加触摸 ripple 效果，参考 topeka - item_category.xml -->
+            <!--android:foreground="@drawable/selector_subtle"-->
+
+            <!--  <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="版本号: 18"
+                  android:textColor="@color/menu_title_color"
+                  android:textSize="@dimen/menu_title_size" />-->
+
+            <TextView
+                android:id="@+id/scenicAuthResultHeader_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="验证结果: 抱歉认证失败"
+                android:textColor="@color/menu_title_color"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/scenicAuthResultInfo_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="错误信息: 204"
+                android:textColor="@color/menu_title_color"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <!--通用二维码扫码-->
+        <!--android:layout_marginTop="78dp"-->
+        <LinearLayout
+            android:id="@+id/authAccountAvatar_LL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/done_text_color_disabled"
+            android:foreground="@drawable/selector_subtle"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="20dp">
+            <!--android:background="@color/me_text_content_color"-->
+
+            <ImageView
+                android:id="@+id/authAccountAvatar_IV"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/read_ic"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scenicAuthInfo_LL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/btn_pressed_green_solid"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/authAccountName_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/common_info_row_ll_padding_bottom"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="@dimen/common_info_row_ll_padding_top">
+
+                <TextView
+                    android:id="@+id/authAccountNameLabel_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_info_row_label_ll_tv_padding"
+                    android:text="姓名"
+                    android:textColor="@color/common_info_row_label"
+                    android:textSize="@dimen/common_info_row_label_ll_tv_size"/>
+                <!--android:layout_centerVertical="true"-->
+
+                <TextView
+                    android:id="@+id/authAccountNameInfo_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_info_row_value_ll_tv_padding"
+                    android:text="_"
+                    android:textColor="@color/common_info_row_value"
+                    android:textSize="@dimen/common_info_row_value_ll_tv_size"/>
+                <!--android:layout_centerVertical="true"-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/authAccountGender_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/common_info_row_ll_padding_bottom"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="@dimen/common_info_row_ll_padding_top">
+
+                <TextView
+                    android:id="@+id/authAccountGenderLabel_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_info_row_label_ll_tv_padding"
+                    android:text="性别:"
+                    android:textColor="@color/common_info_row_label"
+                    android:textSize="@dimen/common_info_row_label_ll_tv_size"/>
+                <!--android:layout_centerVertical="true"-->
+
+                <TextView
+                    android:id="@+id/authAccountGenderInfo_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_info_row_value_ll_tv_padding"
+                    android:text="_"
+                    android:textColor="@color/common_info_row_value"
+                    android:textSize="@dimen/common_info_row_value_ll_tv_size"/>
+                <!--android:layout_centerVertical="true"-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/authAccountIdNo_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/common_info_row_ll_padding_bottom"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="@dimen/common_info_row_ll_padding_top">
+
+                <TextView
+                    android:id="@+id/authAccountIdNoLabel_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_info_row_label_ll_tv_padding"
+                    android:text="身份证:"
+                    android:textColor="@color/common_info_row_label"
+                    android:textSize="@dimen/common_info_row_label_ll_tv_size"/>
+                <!--android:layout_centerVertical="true"-->
+
+                <TextView
+                    android:id="@+id/authAccountIdNoInfo_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_info_row_value_ll_tv_padding"
+                    android:text="_"
+                    android:textColor="@color/common_info_row_value"
+                    android:textSize="@dimen/common_info_row_value_ll_tv_size"/>
+                <!--android:layout_centerVertical="true"-->
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--通用二维码扫码-->
+    <LinearLayout
+        android:id="@+id/scenicAuthFooter_LL"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/menu_padding"
+        android:background="@color/cornflower_blue"
+        android:foreground="@drawable/selector_subtle"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!-- 添加触摸 ripple 效果，参考 topeka - item_category.xml -->
+        <!--android:foreground="@drawable/selector_subtle"-->
+
+        <!--android:text="{fa-object-group}"-->
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/scenicAuthIcon_ITV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{fa-columns}"
+            android:textColor="@color/menu_icon_color"
+            android:textSize="36sp"/>
+
+        <TextView
+            android:id="@+id/scenicAuthInfo_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/menu_icon_title_magin"
+            android:text="授权验证"
+            android:textColor="@color/white"
+            android:textSize="@dimen/menu_title_size"/>
+    </LinearLayout>
+
+</RelativeLayout>
