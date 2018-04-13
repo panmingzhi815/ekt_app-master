@@ -295,7 +295,6 @@ public class CoamHttpService<T> implements CoamApiInterface {
         List<Protocol> protocolList = new ArrayList<Protocol>();
         protocolList.add(Protocol.SPDY_3);
         protocolList.add(Protocol.HTTP_1_1);
-
         OkHttpClient okClient = new OkHttpClient.Builder()
                 // [http协议Authorization认证方式在Android开发中的使用](http://blog.csdn.net/u012702547/article/details/53148706)
                 // [Recipes](https://github.com/square/okhttp/wiki/Recipes)

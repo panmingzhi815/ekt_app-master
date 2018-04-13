@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
+import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -77,6 +78,8 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import timber.log.Timber;
 
+import static android.content.Context.TELEPHONY_SERVICE;
+
 public class CommonUtils {
 
     // 参考单例设计模式
@@ -97,6 +100,10 @@ public class CommonUtils {
     }
 
     public static String getDeviceId(Context context) {
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(TELEPHONY_SERVICE);
+        if (tm != null) {
+            return tm.getDeviceId();
+        }
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
@@ -209,14 +216,14 @@ public class CommonUtils {
     }
 
     public static int getVersionCode(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return packageInfo.versionCode;
-        } catch (NameNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return 0;
+//        try {
+//            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+//            return packageInfo.versionCode;
+//        } catch (NameNotFoundException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+        return 19;
     }
 
     public static String packageInviteInfo(String reason) {
@@ -909,7 +916,7 @@ public class CommonUtils {
 
                         int status = model.re_code;
                         switch (status) {
-                            case 0:// 设备注册成功
+                            case 222:// 设备注册成功
                                 int beathearPeriod = model.re_data.beathearPeriod;
                                 int tourId = model.re_data.tourId;
                                 String token = model.re_data.token;
@@ -958,7 +965,7 @@ public class CommonUtils {
                         }
 
                         // 发送事件总线消息...
-                        EventBus.getDefault().post(crossLoadTokenInfoBus);
+                        //EventBus.getDefault().post(crossLoadTokenInfoBus);
 
                         Timber.i("#|@|IIIIIIIIII[I-M]:" + model.toString());
                     }

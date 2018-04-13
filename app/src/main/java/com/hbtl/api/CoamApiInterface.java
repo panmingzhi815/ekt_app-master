@@ -31,7 +31,7 @@ interface CoamApiInterface {
     // 请求服务器[server]
     //public final static String MPI_SERVER = "https://" + MPI_HOST;
     //public static String MPI_SERVER = "http://facechecktest.hbekt.com:3000";
-    //public static String MPI_SERVER = "http://nno.io:3000";
+    //public static String MPI_SERVER = "http://120.77.11.196:3000";
     public static String MPI_SERVER = BuildConfig.EKT_API_SERVER;
     //public static String MPI_SERVER = "http://120.77.11.196:3001";
     //public final static String WWW_SERVER = "https://" + WWW_HOST;

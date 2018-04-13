@@ -93,7 +93,7 @@ android {
     // 构建自动打包命令
     task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
         ///def ndkDir = android.plugin.ndkFolder
-        commandLine "$ndkDir/ndk-build", // [ios:ndk-build|win:ndk-build.cmd]
+        commandLine "$ndkDir/ndk-build.cmd", // [ios:ndk-build|win:ndk-build.cmd]
                 '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
                 '-j', Runtime.runtime.availableProcessors(),
                 'all',
@@ -233,8 +233,8 @@ android {
                 app_name: "腾旅-develop",
                 app_icon: "@drawable/icon_develop"
             ]
-            buildConfigField 'String', 'EKT_API_HOST', '"nno.io"'
-            buildConfigField 'String', 'EKT_API_SERVER', '"http://nno.io:3000"'
+            buildConfigField 'String', 'EKT_API_HOST', '"120.77.11.196"'
+            buildConfigField 'String', 'EKT_API_SERVER', '"http://120.77.11.196:3000"'
         }
         //测试环境
         check {
@@ -249,8 +249,8 @@ android {
                 app_name: "腾旅-check",
                 app_icon: "@drawable/icon_check"
             ]
-            buildConfigField 'String', 'EKT_API_HOST', '"nno.io"'
-            buildConfigField 'String', 'EKT_API_SERVER', '"http://nno.io:3000"'
+            buildConfigField 'String', 'EKT_API_HOST', '"120.77.11.196"'
+            buildConfigField 'String', 'EKT_API_SERVER', '"http://120.77.11.196:3000"'
         }
         //正式环境
         product {
@@ -265,8 +265,8 @@ android {
                 app_name: "腾旅-product",
                 app_icon: "@drawable/icon_product"
             ]
-            buildConfigField 'String', 'EKT_API_HOST', '"nno.io"'
-            buildConfigField 'String', 'EKT_API_SERVER', '"http://nno.io:3000"'
+            buildConfigField 'String', 'EKT_API_HOST', '"120.77.11.196"'
+            buildConfigField 'String', 'EKT_API_SERVER', '"http://120.77.11.196:3000"'
         }
     }
     productFlavors.all {
